@@ -1,0 +1,22 @@
+CREATE DATABASE TuBaseDeDatos;
+
+-- Usar la base de datos recién creada
+USE TuBaseDeDatos;
+
+-- Crear la tabla Usuarios
+CREATE TABLE Usuarios (
+    Id INT PRIMARY KEY,
+    Nombre NVARCHAR(255),
+    CorreoElectronico NVARCHAR(255),
+    FechaCreacion DATETIME
+);
+
+-- Crear la tabla Tareas
+CREATE TABLE Tareas (
+    Id INT PRIMARY KEY,
+    Titulo NVARCHAR(255),
+    Descripcion NVARCHAR(MAX),
+    FechaCreacion DATETIME,
+    UsuarioId INT,
+    FOREIGN KEY (UsuarioId) REFERENCES Usuarios(Id)
+);
